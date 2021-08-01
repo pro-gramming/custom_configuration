@@ -1,11 +1,66 @@
+" Assigning the leader key 
+let mapleader = ","
+
+" For syntax
+if has("syntax")
+  syntax on
+endif
+
+" Sometimes backspace doesn't work , this is for that
+set backspace=indent,eol,start
+
+set encoding=utf-8
+
+" For having a consistent format of font and size across every vim window
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=Inconsolata\ 12
+  elseif has("gui_macvim")
+    set guifont=Menlo\ Regular:h14
+  elseif has("gui_win32")
+    set guifont=Consolas:h11:cANSI
+  endif
+endif
+
+
+" For dark background
+if has('gui_running')
+  set background=dark
+  colorscheme desert
+else
+  colorscheme desert
+endif
+
+
+" rapid editing of .vimrc
+nmap <leader>vr :sp $MYVIMRC<cr>
+nmap <leader>so :source $MYVIMRC<cr>
+
+" exiting to normal mode using the leader key mapping
+imap jk <esc>
+imap kj <esc>
+ 
+
+" For highlighting text search when searching 
 set hlsearch
+" For highlight matched word as you type while doing search
 set incsearch 
 set number
+
+" For indentation related problems 
 set expandtab
 set softtabstop=2
 set shiftwidth=2
 set tabstop=2
 set autoindent
+
+" For line which are too long for our small window 
 set linebreak
 set wrap
-set bg=dark 
+
+" For more precise info of the cursor
+set ruler
+
+set showcmd            " Show (partial) command in status line.
+set showmatch          " Show matching brackets.
+set ignorecase         " Do case insensitive matching
